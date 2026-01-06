@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição Confirmada — ENAC 2026</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/success.css">
+    
+</head>
+<body>
+    <div class="container">
+        <!-- Success Header -->
+        <div class="success-header">
+            <div class="success-icon"></div>
+            <h1>🎉 Inscrição Confirmada com Sucesso!</h1>
+            <p class="subtitle">
+                Parabéns! Sua inscrição no ENAC 2026 foi processada e confirmada.
+            </p>
+            <div class="order-number" id="orderNumber">
+                Pedido: ENAC2026-...
+            </div>
+        </div>
+
+        <!-- Payment Info -->
+        <div class="info-section">
+            <h3 class="section-title">📋 Detalhes do Pagamento</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Método de Pagamento</div>
+                    <div class="info-value" id="paymentMethod">Cartão de Crédito</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Valor Total</div>
+                    <div class="info-value" id="totalAmount">R$ 650,00</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Data da Compra</div>
+                    <div class="info-value" id="purchaseDate">19/12/2025</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Status</div>
+                    <div class="info-value" style="color: #28a745;">✓ Confirmado</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Participants -->
+        <div class="info-section">
+            <h3 class="section-title">👥 Participantes Inscritos</h3>
+            <div class="participants-list" id="participantsList">
+                <!-- Preenchido via JavaScript -->
+            </div>
+        </div>
+
+        <!-- Next Steps -->
+        <div class="next-steps">
+            <h3>📌 Próximos Passos</h3>
+            <div class="steps-list">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <strong>Verifique seu e-mail</strong>
+                        <p>Enviamos um e-mail de confirmação com todos os detalhes da sua inscrição e os próximos passos.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <strong>Guarde seu número de pedido</strong>
+                        <p>Use o código acima para consultar sua inscrição ou entrar em contato conosco.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <strong>Aguarde o credenciamento</strong>
+                        <p>Você receberá instruções sobre credenciamento e acesso ao evento por e-mail em breve.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <a href="#" onclick="window.print(); return false;" class="btn btn-primary">
+                    🖨️ Imprimir Comprovante
+                </a>
+                <a href="index.html" class="btn btn-secondary">
+                    ← Voltar ao Início
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer Note -->
+        <div class="footer-note">
+            <p>
+                <strong>Dúvidas?</strong> Entre em contato com nossa equipe:
+            </p>
+            <a href="mailto:contato@enac2026.com.br">📧 contato@enac2026.com.br</a>
+            <span style="margin: 0 10px; color: #ddd;">|</span>
+            <a href="https://wa.me/5511999999999">📱 (11) 99999-9999</a>
+        </div>
+    </div>
+
+    <script src="js/success.js"></script>
+</body>
+</html>

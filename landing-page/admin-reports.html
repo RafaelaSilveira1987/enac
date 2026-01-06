@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Relatórios — ENAC 2026 Admin</title>
+    <link rel="stylesheet" href="landing-page/css/styles.css" />
+    <link rel="stylesheet" href="landing-page/css/admin.css" />
+  </head>
+  <body data-page="admin-reports">
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="home">ENAC 2026</a>
+        <nav>
+          <a href="login" class="btn btn-secondary" id="logoutBtn"
+            >Sair</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="admin-reports-container">
+        <h1>Relatórios de Inscrições</h1>
+
+        <div id="reportsAlert" class="alert"></div>
+
+        <!-- Filtros de busca -->
+        <div class="search-filters">
+          <div class="filter-group">
+            <label for="searchInput"
+              >Buscar (nome, CPF, email, telefone, cidade, participação, grupo
+              de mentoria, transporte, áreas de voluntariado,
+              observações):</label
+            >
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Digite para buscar em todos os campos..."
+              class="search-input"
+            />
+          </div>
+
+          <div class="filter-row">
+            <div class="filter-group">
+              <label for="filterType">Tipo de participante:</label>
+              <select id="filterType" class="filter-select">
+                <option value="">Todos</option>
+                <option value="0">Adulto</option>
+                <option value="1">Criança até 3 anos</option>
+                <option value="2">Criança 4-9 anos</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="sortBy">Ordenar por:</label>
+              <select id="sortBy" class="filter-select">
+                <option value="date-desc">Data (mais recente)</option>
+                <option value="date-asc">Data (mais antiga)</option>
+                <option value="name-asc">Nome (A-Z)</option>
+                <option value="name-desc">Nome (Z-A)</option>
+                <option value="price-desc">Preço (maior)</option>
+                <option value="price-asc">Preço (menor)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="filter-actions">
+            <button id="clearFilters" class="btn btn-secondary">
+              Limpar Filtros
+            </button>
+            <button id="exportBtn" class="btn btn-primary">Exportar CSV</button>
+          </div>
+        </div>
+
+        <!-- Estatísticas -->
+        <div class="stats-grid" id="statsGrid">
+          <div class="stat-card">
+            <div class="stat-value" id="totalInscricoes">0</div>
+            <div class="stat-label">Total de Inscrições</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="totalAdultos">0</div>
+            <div class="stat-label">Adultos</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="totalCriancas">0</div>
+            <div class="stat-label">Crianças</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="totalValor">R$ 0,00</div>
+            <div class="stat-label">Valor Total</div>
+          </div>
+        </div>
+
+        <!-- Lista de inscrições -->
+        <div class="inscricoes-section">
+          <h2>Inscrições Encontradas: <span id="resultsCount">0</span></h2>
+          <div id="inscricoesList" class="inscricoes-list">
+            <div class="no-results">Carregando inscrições...</div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="landing-page/js/reports.js"></script>
+  </body>
+</html>

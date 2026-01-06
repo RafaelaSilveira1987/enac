@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo da Inscrição — ENAC 2026</title>
+  <link rel="stylesheet" href="landing-page/css/styles.css" />
+  <link rel="stylesheet" href="landing-page/css/summary.css" />
+</head>
+
+<body data-page="summary">
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="home">ENAC 2026</a>
+      <nav>
+        <a href="modalities" class="btn btn-secondary">Voltar</a>
+        <a href="summary" class="btn btn-primary">Resumo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="summary-header">
+      <h2>Resumo da Inscrição</h2>
+      <p>Revise os participantes, valores e cupons antes do pagamento.</p>
+    </div>
+    <div id="summaryAlert" class="alert"></div>
+
+    <div class="summary-wrapper">
+      <!-- Lista de participantes -->
+      <div id="participantsCards" class="participants-cards-grid"></div>
+
+      <!-- Card de total -->
+      <div class="summary-total-card">
+        <div>
+          <div class="total-label">Total de Participantes</div>
+          <div class="participant-count" id="participantCount">0</div>
+          <div class="total-label" style="margin-top:8px;">Valor Total</div>
+          <div class="total-amount" id="totalAmount">R$ 0,00</div>
+        </div>
+        <div class="total-actions">
+          <button id="addMoreBtn" class="btn btn-secondary btn-lg">
+            <a href="modalities">
+              ➕ Adicionar Mais Participantes
+            </a>
+          </button>
+          <button id="proceedToCheckoutBtn" class="btn btn-primary btn-lg">
+            <a href="checkout">
+              💳 Finalizar e Pagar
+            </a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="module" src="landing-page/js/summary.js"></script>
+</body>
+
+</html>

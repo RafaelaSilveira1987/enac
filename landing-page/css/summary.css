@@ -1,0 +1,139 @@
+/* Summary Page Styles */
+
+.summary-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.summary-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 0;
+}
+
+.summary-header h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #0f172a;
+}
+
+.summary-header p {
+  margin: 0;
+  color: #475569;
+}
+
+.participants-cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.participant-item {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #fbbf24;
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+}
+
+.participant-item:hover {
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+}
+
+.participant-info strong {
+  display: block;
+  font-size: 1.05rem;
+  color: #0f172a;
+  margin-bottom: 2px;
+}
+
+.participant-info div {
+  font-size: 0.92rem;
+  color: #475569;
+  line-height: 1.35;
+}
+
+.participant-price {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #1d4ed8;
+  text-align: right;
+}
+
+.participant-item .btn.btn-secondary {
+  background: #ef4444;
+  border: none;
+  color: #fff;
+}
+
+.summary-total-card {
+  background: #0f172a;
+  color: #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.summary-total-card .total-label {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  color: #cbd5e1;
+}
+
+.summary-total-card .total-amount {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #fbbf24;
+}
+
+.summary-total-card .participant-count {
+  font-size: 1rem;
+  color: #cbd5e1;
+}
+
+.total-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.btn-lg {
+  padding: 12px 18px;
+  font-size: 1rem;
+}
+
+.no-participants {
+  text-align: center;
+  padding: 40px 20px;
+  color: #64748b;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px dashed #cbd5e1;
+}
+
+@media (max-width: 768px) {
+  .participant-item {
+    flex-direction: column;
+  }
+  .summary-total-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .total-actions {
+    flex-direction: column;
+  }
+}

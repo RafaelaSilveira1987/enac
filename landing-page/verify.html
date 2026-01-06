@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Verificação — ENAC 2026</title>
+    <link rel="stylesheet" href="landing-page/css/styles.css" />
+    <link rel="stylesheet" href="landing-page/css/verify.css" />
+  </head>
+  <body data-page="verify">
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="home">ENAC 2026</a>
+        <nav>
+          <a href="home" class="btn btn-secondary">Voltar</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="verify-container">
+        <div class="verify-card">
+          <h1>Bem-vindo ao ENAC 2026</h1>
+          <p class="verify-subtitle">
+            Para começar sua inscrição, informe o CPF do responsável pelas
+            inscrições
+          </p>
+
+          <div id="verifyAlert" class="alert"></div>
+
+          <form id="verifyForm">
+            <div class="form-group">
+              <label for="responsibleCpf">CPF do Responsável</label>
+              <input
+                id="responsibleCpf"
+                type="text"
+                placeholder="000.000.000-00"
+                maxlength="14"
+                required
+              />
+              <small style="color: #999; margin-top: 4px; display: block">
+                Formato: XXX.XXX.XXX-XX
+              </small>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              style="width: 100%; margin-top: 16px"
+            >
+              Continuar
+            </button>
+          </form>
+
+          <div class="verify-info">
+            <h3>Como funciona?</h3>
+            <ul>
+              <li>Informe o CPF de quem está fazendo a inscrição</li>
+              <li>Você poderá adicionar múltiplos participantes</li>
+              <li>Cada participante terá seu próprio valor</li>
+              <li>Ao final, você confirma e paga tudo junto</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="landing-page/js/verify.js"></script> 
+  </body>
+</html>

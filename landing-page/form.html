@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Formulário — ENAC 2026</title>
+  <link rel="stylesheet" href="landing-page/css/styles.css" />
+  <link rel="stylesheet" href="landing-page/css/form.css" />
+</head>
+
+<body data-page="form">
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="home">ENAC 2026</a>
+      <nav>
+        <a href="modalities" class="btn btn-secondary">Voltar</a>
+        <a href="summary" class="btn btn-primary">Ver Resumo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <form id="participantForm">
+
+      <h2 id="formTitle">Formulário — Inscrição Infantil</h2>
+
+      <div id="alert" class="alert"></div>
+
+      <div class="form-wrap">
+        <div class="section">
+          <h3>Dados da Criança</h3>
+
+          <div class="form-group">
+            <label for="child_name">Nome completo</label>
+            <input id="child_name" type="text" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="child_birthDate">Data de nascimento</label>
+              <input id="child_birthDate" type="date" />
+            </div>
+            <div class="form-group">
+              <label for="child_ageText">Idade</label>
+              <input id="child_ageText" type="text" disabled />
+            </div>
+          </div>
+
+          <div id="div-price" class="form-group">
+            <div id="pricePreview" style="margin-top: 12px; font-weight: 600; color: #222">
+              <small>Valor bruto: R$</small> <span id="price">0,00</span>
+            </div>
+
+            <div id="pricePreview" style="margin-top: 12px; font-weight: 600; color: #222">
+              <small>Percentual desconto: R$</small> <span id="percent">0.00</span><small>%</small>
+            </div>
+
+            <div id="pricePreview" style="margin-top: 12px; font-weight: 600; color: #222">
+              <small>Valor desconto: R$</small> <span id="value-desc">0,00</span>
+            </div>
+
+            <div id="pricePreview" style="margin-top: 12px; font-weight: 600; color: #222">
+              <small>Valor Taxa Inscrição: R$</small> <span id="value-tx"> 0,00</span>
+            </div>
+
+            <div id="pricePreview" style="margin-top: 12px; font-weight: 600; color: #222">
+              <small>Valor liquido R$</small> <span id="new-value">0,00</span>
+            </div>
+          </div>
+
+          <div style="
+              display: flex;
+              gap: 8px;
+              align-items: center;
+              margin-top: 12px;
+            " id="btnWrapper">
+            <button id="addBtnChild" class="btn btn-primary">
+              Adicionar Participante
+            </button>
+            <a href="summary" class="btn btn-secondary">Ir para Resumo</a>
+          </div>
+
+          <div class="participants-list" id="participantsList"></div>
+        </div>
+      </div>
+
+    </form>
+
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="module" src="landing-page/js/form.js"></script>
+</body>
+
+</html>

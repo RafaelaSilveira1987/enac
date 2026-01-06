@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falha no Pagamento — ENAC 2026</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/payment-failure.css">
+   
+</head>
+<body>
+    <div class="container">
+        <!-- Error Icon -->
+        <div class="error-icon"></div>
+
+        <!-- Title and Subtitle -->
+        <h1>❌ Pagamento Não Autorizado</h1>
+        <p class="subtitle">
+            Infelizmente seu pagamento não pôde ser processado. 
+            Não se preocupe, nenhum valor foi cobrado.
+        </p>
+
+        <!-- Error Details -->
+        <div class="error-box">
+            <div class="error-title">
+                ⚠️ Motivo da Recusa
+            </div>
+            <div class="error-reason" id="errorReason">
+                Transação recusada pela operadora do cartão.
+            </div>
+            <div class="error-code" id="errorCode">
+                Código: PAGBANK_DECLINED_001
+            </div>
+        </div>
+
+        <!-- Possible Reasons -->
+        <div class="reasons-box">
+            <div class="reasons-title">
+                💡 Possíveis Causas
+            </div>
+            <ul class="reasons-list">
+                <li><strong>Saldo ou limite insuficiente</strong> no cartão</li>
+                <li><strong>Dados do cartão incorretos</strong> (número, validade ou CVV)</li>
+                <li><strong>Cartão bloqueado ou vencido</strong></li>
+                <li><strong>Problema de conexão</strong> com a operadora</li>
+                <li><strong>Transação suspeita</strong> detectada pelo banco</li>
+            </ul>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <a href="checkout.html" class="btn btn-primary">
+                🔄 Tentar Novamente
+            </a>
+            <a href="index.html" class="btn btn-secondary">
+                ← Voltar ao Início
+            </a>
+        </div>
+
+        <!-- Support Box -->
+        <div class="support-box">
+            <div class="support-title">Precisa de ajuda?</div>
+            <p class="support-text">
+                Entre em contato com nosso suporte:
+            </p>
+            <a href="mailto:contato@enac2026.com.br" class="support-contact">
+                📧 contato@enac2026.com.br
+            </a>
+            <br/>
+            <a href="https://wa.me/5511999999999" class="support-contact" style="margin-top: 8px; display: inline-block;">
+                📱 WhatsApp: (11) 99999-9999
+            </a>
+        </div>
+    </div>
+
+    <script src="./js/payment-failure.js"></script>
+</body>
+</html>

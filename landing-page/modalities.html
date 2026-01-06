@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Escolha a Modalidade — ENAC 2026</title>
+    <link rel="stylesheet" href="landing-page/css/styles.css" />
+    <link rel="stylesheet" href="landing-page/css/index.css" />
+  </head>
+  <body data-page="modalities">
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="home">ENAC 2026</a>
+        <nav style="display: flex; gap: 8px">
+          <a href="home" class="btn btn-secondary">Voltar</a>
+          <a href="summary" class="btn btn-primary">Resumo</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <header class="page-header">
+        <h2>Selecione a Modalidade de Inscrição</h2>
+        <p class="lead">
+          Escolha a categoria que melhor se aplica ao participante
+        </p>
+      </header>
+
+      <div class="cards">
+        <div class="card">
+          <div>
+            <h3>Adulto</h3>
+            <p>Participante com 18 anos ou mais</p>
+          </div>
+          <a
+            href="form-adult?type=0"
+            class="btn btn-primary btn-continue"
+            data-modalidade="adulto"
+            >Continuar</a
+          >
+        </div>
+
+        <div class="card">
+          <div>
+            <h3>Até 4 anos</h3>
+            <p>Crianças de 0 até 3 anos e 11 meses</p>
+          </div>
+          <a
+            href="form?type=1"
+            class="btn btn-primary btn-continue"
+            data-modalidade="crianca_ate_4"
+            >Continuar</a
+          >
+        </div>
+
+        <div class="card">
+          <div>
+            <h3>4 a 9 anos</h3>
+            <p>Crianças de 4 anos até 9 anos e 11 meses</p>
+          </div>
+          <a
+            href="form?type=2"
+            class="btn btn-primary btn-continue"
+            data-modalidade="crianca_4_9"
+            >Continuar</a
+          >
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal CPF -->
+    <div id="cpfModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Informe seu CPF</h2>
+          <button id="closeModal" class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p style="color: #666; margin-bottom: 16px">
+            Para agilizar o preenchimento, informe seu CPF. Ele será preenchido
+            automaticamente no formulário.
+          </p>
+          <div class="form-group">
+            <label for="modalCpfInput">CPF</label>
+            <input
+              id="modalCpfInput"
+              type="text"
+              placeholder="000.000.000-00"
+              maxlength="14"
+              style="
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
+                font-size: 1rem;
+              "
+            />
+            <small style="color: #999; margin-top: 4px; display: block"
+              >Formato: XXX.XXX.XXX-XX</small
+            >
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="proceedWithoutCpf" class="btn btn-secondary">
+            Pular
+          </button>
+          <button id="proceedWithCpf" class="btn btn-primary">Continuar</button>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

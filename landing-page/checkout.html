@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Finalizar Pagamento — ENAC 2026</title>
+    <link rel="stylesheet" href="landing-page/css/styles.css" />
+    <link rel="stylesheet" href="landing-page/css/checkout.css" />
+  </head>
+  <body data-page="checkout">
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="home">ENAC 2026</a>
+        <nav>
+          <a href="summary" class="btn btn-secondary">Voltar</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <h2>Finalizar Pagamento</h2>
+      <div id="checkoutAlert" class="alert"></div>
+
+      <div class="checkout-wrapper">
+        <!-- Resumo do Pedido -->
+        <div class="order-summary-box">
+          <h3>Resumo do Pedido</h3>
+
+          <div class="order-item">
+            <span class="label">CPF do Responsável:</span>
+            <span class="value" id="cpfResponsavel">-</span>
+          </div>
+
+          <div class="order-item">
+            <span class="label">Quantidade de Participantes:</span>
+            <span class="value" id="qtdParticipantes">0</span>
+          </div>
+
+          <div class="order-item">
+            <span class="label">Nome do Evento:</span>
+            <span class="value">ENAC 2026</span>
+          </div>
+        </div>
+
+        <!-- Lista simplificada de participantes -->
+        <div class="participants-simple-list">
+          <h3>Participantes</h3>
+          <div id="checkoutParticipants" class="simple-list"></div>
+        </div>
+
+        <!-- Total destacado -->
+        <div class="total-box">
+          <div class="total-label">Valor Total a Pagar</div>
+          <div class="total-value" id="totalValue">R$ 0,00</div>
+        </div>
+
+        <!-- Métodos de Pagamento -->
+        <div class="payment-section">
+          <h3>Forma de Pagamento</h3>
+          
+          <div class="payment-methods">
+            <div class="payment-method" data-method="credit_card">
+              <div class="payment-method-icon">💳</div>
+              <div class="payment-method-label">Cartão de Crédito</div>
+            </div>
+            
+            <div class="payment-method" data-method="pix">
+              <div class="payment-method-icon">📱</div>
+              <div class="payment-method-label">PIX</div>
+            </div>
+          </div>
+
+          <!-- Formulário de Cartão de Crédito -->
+          <div id="creditCardForm" class="payment-form">
+            <h4>Dados do Cartão</h4>
+            
+            <div class="form-group">
+              <label for="cardNumber">Número do Cartão *</label>
+              <input 
+                type="text" 
+                id="cardNumber" 
+                placeholder="0000 0000 0000 0000"
+                maxlength="19"
+                required
+              />
+              <div class="card-icons">
+                <div class="card-icon" title="Visa">VISA</div>
+                <div class="card-icon" title="Mastercard">MASTER</div>
+                <div class="card-icon" title="Elo">ELO</div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cardExpiry">Validade *</label>
+                <input 
+                  type="text" 
+                  id="cardExpiry" 
+                  placeholder="MM/AA"
+                  maxlength="5"
+                  required
+                />
+              </div>
+              
+              <div class="form-group">
+                <label for="cardCVV">CVV *</label>
+                <input 
+                  type="text" 
+                  id="cardCVV" 
+                  placeholder="123"
+                  maxlength="4"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="cardHolder">Nome no Cartão *</label>
+              <input 
+                type="text" 
+                id="cardHolder" 
+                placeholder="Nome como está no cartão"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="installments">Parcelas *</label>
+              <select id="installments" required>
+                <option value="">Selecione</option>
+                <option value="1">1x sem juros</option>
+                <option value="2">2x sem juros</option>
+                <option value="3">3x sem juros</option>
+                <option value="4">4x sem juros</option>
+                <option value="5">5x sem juros</option>
+                <option value="6">6x sem juros</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Formulário PIX -->
+          <div id="pixForm" class="payment-form">
+            <h4>Pagamento via PIX</h4>
+            <p style="color: #666; margin-bottom: 20px;">
+              O QR Code será gerado após a confirmação do pedido.
+            </p>
+            <div id="pixQRCode" class="pix-qrcode" style="display: none;">
+              <img id="pixQRImage" src="" alt="QR Code PIX" />
+              <p><strong>Escaneie o QR Code acima ou copie o código:</strong></p>
+              <div class="pix-code">
+                <code id="pixCode"></code>
+              </div>
+              <button type="button" onclick="copyPixCode()" class="btn btn-copy">
+                📋 Copiar Código PIX
+              </button>
+              <p style="margin-top: 20px; color: #666; font-size: 0.9rem;">
+                ⏱️ Este QR Code expira em 30 minutos
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info de segurança -->
+        <div class="security-box">
+          <div class="security-icon">🔒</div>
+          <div class="security-content">
+            <h4>Pagamento Seguro via PagBank</h4>
+            <p>Seus dados estão protegidos com criptografia SSL</p>
+            <p style="font-size: 0.9rem; color: #666; margin-top: 8px">
+              Processamento 100% seguro pelo PagBank
+            </p>
+          </div>
+        </div>
+
+        <!-- Botão de Pagamento -->
+        <button id="btnPay" class="btn-pay" disabled>
+          Selecione uma forma de pagamento
+        </button>
+      </div> 
+    </main>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+      <div class="loading-content">
+        <div class="spinner"></div>
+        <p>Processando pagamento...</p>
+        <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">
+          Aguarde, não feche esta página
+        </p>
+      </div>
+    </div>
+
+    <script  type="module" src="landing-page/js/checkout.js"></script>
+  </body>
+</html>

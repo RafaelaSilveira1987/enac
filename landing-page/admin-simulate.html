@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simular Inscrições — ENAC 2026</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="index.html">ENAC 2026</a>
+        <nav>
+          <a href="index.html" class="btn btn-secondary">Voltar</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="admin-login-container">
+        <div class="admin-login-card">
+          <h1>Simular Inscrições</h1>
+          <p class="admin-subtitle">
+            Esta página cria dados de exemplo para testar o sistema de
+            relatórios
+          </p>
+
+          <div id="simulateAlert" class="alert"></div>
+
+          <div style="margin-top: 24px">
+            <button id="simulateBtn" class="btn btn-primary btn-block">
+              Criar Inscrições de Exemplo
+            </button>
+            <button
+              id="clearBtn"
+              class="btn btn-secondary btn-block"
+              style="margin-top: 12px"
+            >
+              Limpar Todas as Inscrições
+            </button>
+          </div>
+
+          <div id="results" style="margin-top: 24px; padding-top: 24px; border-top: 1px solid #e2e8f0;">
+            <h3 style="margin-bottom: 12px; font-size: 1.1rem;">Status:</h3>
+            <div id="statusInfo" style="color: #666; font-size: 0.9rem;">
+              Nenhuma ação realizada ainda
+            </div>
+          </div>
+
+          <div style="margin-top: 24px; text-align: center;">
+            <a href="admin-reports.html" class="btn btn-primary">Ver Relatórios</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // Dados de exemplo para adultos
+      const exemploAdultos = [
+        {
+          id: Date.now() + 1000,
+          cpf: "123.456.789-00",
+          name: "João Silva Santos",
+          birthDate: "1990-05-15",
+          phone: "(41) 98765-4321",
+          city: "Curitiba",
+          state: "PR",
+          email: "joao.silva@email.com",
+          participation: "campo",
+          mentoriaGroup: "oriente_medio",
+          transport: ["aviao"],
+          volunteerAreas: ["comunicacao", "mobilizacao"],
+          observations: "Vegetariano - não consome produtos de origem animal",
+          consent: true,
+          priceBase: 750,
+          priceFinal: 750,
+          couponCode: null,
+          modality: "adulto",
+          modalityLabel: "Adulto",
+        },
+        {
+          id: Date.now() + 2000,
+          cpf: "234.567.890-11",
+          name: "Maria Oliveira Costa",
+          birthDate: "1985-08-22",
+          phone: "(11) 91234-5678",
+          city: "São Paulo",
+          state: "SP",
+          email: "maria.oliveira@email.com",
+          participation: "voluntario",
+          mentoriaGroup: "africa",
+          transport: ["onibus"],
+          volunteerAreas: ["act", "intercessao"],
+          observations: "",
+          consent: true,
+          priceBase: 750,
+          priceFinal: 675,
+          couponCode: "ENAC10",
+          modality: "adulto",
+          modalityLabel: "Adulto",
+        },
+        {
+          id: Date.now() + 3000,
+          cpf: "345.678.901-22",
+          name: "Pedro Almeida Souza",
+          birthDate: "1992-12-03",
+          phone: "(21) 99876-5432",
+          city: "Rio de Janeiro",
+          state: "RJ",
+          email: "pedro.almeida@email.com",
+          participation: "interact",
+          mentoriaGroup: "eurasia",
+          transport: ["carro"],
+          volunteerAreas: ["ti", "organizacional"],
+          observations: "Intolerante a lactose",
+          consent: true,
+          priceBase: 750,
+          priceFinal: 700,
+          couponCode: "FRONT50",
+          modality: "adulto",
+          modalityLabel: "Adulto",
+        },
+        {
+          id: Date.now() + 4000,
+          cpf: "456.789.012-33",
+          name: "Ana Paula Ferreira",
+          birthDate: "1988-03-18",
+          phone: "(41) 98765-1234",
+          city: "Curitiba",
+          state: "PR",
+          email: "ana.ferreira@email.com",
+          participation: "campo",
+          mentoriaGroup: "asia",
+          transport: ["aviao"],
+          volunteerAreas: ["saude_integral", "projetos_especiais"],
+          observations: "",
+          consent: true,
+          priceBase: 750,
+          priceFinal: 750,
+          couponCode: null,
+          modality: "adulto",
+          modalityLabel: "Adulto",
+        },
+        {
+          id: Date.now() + 5000,
+          cpf: "567.890.123-44",
+          name: "Carlos Roberto Lima",
+          birthDate: "1995-07-25",
+          phone: "(47) 91234-5678",
+          city: "Joinville",
+          state: "SC",
+          email: "carlos.lima@email.com",
+          participation: "voluntario",
+          mentoriaGroup: "triagem",
+          transport: ["onibus"],
+          volunteerAreas: ["envio", "gestao_voluntarios"],
+          observations: "Vegano",
+          consent: true,
+          priceBase: 750,
+          priceFinal: 600,
+          couponCode: "ENAC20",
+          modality: "adulto",
+          modalityLabel: "Adulto",
+        },
+      ];
+
+      // Dados de exemplo para crianças (4-9 anos)
+      const exemploCriancas4_9 = [
+        {
+          id: Date.now() + 6000,
+          name: "Lucas Silva Santos",
+          birthDate: "2018-04-10",
+          fatherName: "João Silva Santos",
+          motherName: "Maria Silva Santos",
+          responsiblePhone: "(41) 98765-4321",
+          cpf: "123.456.789-00",
+          priceBase: 375,
+          priceFinal: 375,
+          couponCode: null,
+          modality: "crianca_4_9",
+          modalityLabel: "4 a 9 anos",
+        },
+        {
+          id: Date.now() + 7000,
+          name: "Sophia Oliveira Costa",
+          birthDate: "2017-09-15",
+          fatherName: "Roberto Costa",
+          motherName: "Maria Oliveira Costa",
+          responsiblePhone: "(11) 91234-5678",
+          cpf: "234.567.890-11",
+          priceBase: 375,
+          priceFinal: 337.5,
+          couponCode: "ENAC10",
+          modality: "crianca_4_9",
+          modalityLabel: "4 a 9 anos",
+        },
+        {
+          id: Date.now() + 8000,
+          name: "Gabriel Almeida Souza",
+          birthDate: "2019-11-20",
+          fatherName: "Pedro Almeida Souza",
+          motherName: "Juliana Almeida",
+          responsiblePhone: "(21) 99876-5432",
+          cpf: "345.678.901-22",
+          priceBase: 375,
+          priceFinal: 375,
+          couponCode: null,
+          modality: "crianca_4_9",
+          modalityLabel: "4 a 9 anos",
+        },
+      ];
+
+      // Dados de exemplo para crianças (até 3 anos)
+      const exemploCriancasAte3 = [
+        {
+          id: Date.now() + 9000,
+          name: "Isabella Ferreira",
+          birthDate: "2022-01-05",
+          fatherName: "Marcos Ferreira",
+          motherName: "Ana Paula Ferreira",
+          responsiblePhone: "(41) 98765-1234",
+          cpf: "456.789.012-33",
+          priceBase: 0,
+          priceFinal: 0,
+          couponCode: null,
+          modality: "crianca_ate_4",
+          modalityLabel: "Até 3 anos",
+        },
+        {
+          id: Date.now() + 10000,
+          name: "Enzo Lima",
+          birthDate: "2023-06-12",
+          fatherName: "Carlos Roberto Lima",
+          motherName: "Patricia Lima",
+          responsiblePhone: "(47) 91234-5678",
+          cpf: "567.890.123-44",
+          priceBase: 0,
+          priceFinal: 0,
+          couponCode: null,
+          modality: "crianca_ate_4",
+          modalityLabel: "Até 3 anos",
+        },
+      ];
+
+      const alertEl = document.getElementById("simulateAlert");
+      const statusInfo = document.getElementById("statusInfo");
+      const simulateBtn = document.getElementById("simulateBtn");
+      const clearBtn = document.getElementById("clearBtn");
+
+      function showAlert(msg, type) {
+        alertEl.textContent = msg || "";
+        alertEl.className = `alert alert-${type || "info"} show`;
+        alertEl.style.display = "block";
+        setTimeout(() => {
+          alertEl.style.display = "none";
+        }, 4000);
+      }
+
+      function updateStatus(msg) {
+        statusInfo.textContent = msg;
+      }
+
+      simulateBtn.addEventListener("click", () => {
+        try {
+          // Carregar inscrições existentes
+          const storageKey = "enac_participants_v1";
+          const existing = JSON.parse(
+            localStorage.getItem(storageKey) || "[]"
+          );
+
+          // Adicionar novos dados
+          const allData = [
+            ...existing,
+            ...exemploAdultos,
+            ...exemploCriancas4_9,
+            ...exemploCriancasAte3,
+          ];
+
+          // Salvar no localStorage
+          localStorage.setItem(storageKey, JSON.stringify(allData));
+
+          const total = allData.length;
+          const adultos = exemploAdultos.length;
+          const criancas = exemploCriancas4_9.length + exemploCriancasAte3.length;
+
+          showAlert(
+            `✅ ${total} inscrições criadas com sucesso! (${adultos} adultos, ${criancas} crianças)`,
+            "success"
+          );
+          updateStatus(
+            `Total de inscrições: ${total} (${adultos} adultos, ${criancas} crianças)`
+          );
+        } catch (error) {
+          showAlert("❌ Erro ao criar inscrições: " + error.message, "danger");
+          updateStatus("Erro ao processar");
+        }
+      });
+
+      clearBtn.addEventListener("click", () => {
+        if (
+          confirm(
+            "Tem certeza que deseja limpar TODAS as inscrições? Esta ação não pode ser desfeita."
+          )
+        ) {
+          try {
+            localStorage.removeItem("enac_participants_v1");
+            localStorage.removeItem("enac_inscricoes_v2");
+            showAlert("✅ Todas as inscrições foram removidas", "success");
+            updateStatus("Nenhuma inscrição no sistema");
+          } catch (error) {
+            showAlert("❌ Erro ao limpar: " + error.message, "danger");
+          }
+        }
+      });
+
+      // Mostrar status atual ao carregar
+      window.addEventListener("load", () => {
+        try {
+          const storageKey = "enac_participants_v1";
+          const existing = JSON.parse(
+            localStorage.getItem(storageKey) || "[]"
+          );
+          const total = existing.length;
+          const adultos = existing.filter((p) => p.modality === "adulto").length;
+          const criancas = total - adultos;
+
+          if (total > 0) {
+            updateStatus(
+              `Atualmente há ${total} inscrições no sistema (${adultos} adultos, ${criancas} crianças)`
+            );
+          } else {
+            updateStatus("Nenhuma inscrição no sistema");
+          }
+        } catch (e) {
+          updateStatus("Erro ao verificar status");
+        }
+      });
+    </script>
+  </body>
+</html>
+

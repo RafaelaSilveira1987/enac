@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Formulário de Inscrição — ENAC 2026</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/form-unified.css" />
+  </head>
+  <body data-page="form-unified">
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="index.html">ENAC 2026</a>
+        <nav>
+          <a href="verify.html" class="btn btn-secondary">Voltar</a>
+          <a href="summary.html" class="btn btn-primary">Ver Resumo</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="form-container">
+        <h1>Adicionar Participante</h1>
+        <p class="form-subtitle">Preencha os dados do participante</p>
+
+        <div id="formAlert" class="alert"></div>
+
+        <form id="participantForm">
+          <!-- Campos Comuns -->
+          <div class="form-group">
+            <label for="participantName">Nome do Participante</label>
+            <input id="participantName" type="text" required />
+          </div>
+
+          <div class="form-group">
+            <label for="birthDate">Data de Nascimento</label>
+            <input id="birthDate" type="date" required />
+          </div>
+
+          <div id="ageDisplay" class="age-display" style="display: none">
+            <div class="age-info">
+              <span id="ageText" style="font-weight: 600; color: #222"></span>
+            </div>
+            <div id="priceInfo" class="price-info"></div>
+          </div>
+
+          <!-- CAMPOS PARA ADULTO -->
+          <div id="adultFields" style="display: none">
+            <div class="section">
+              <h3>Dados Pessoais</h3>
+
+              <div class="form-group">
+                <label for="adultCpf">CPF</label>
+                <input
+                  id="adultCpf"
+                  type="text"
+                  placeholder="000.000.000-00"
+                  maxlength="14"
+                />
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="adultCity">Cidade</label>
+                  <input id="adultCity" type="text" />
+                </div>
+                <div class="form-group">
+                  <label for="adultState">Estado</label>
+                  <input id="adultState" type="text" placeholder="SP" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="adultEmail">Email</label>
+                <input id="adultEmail" type="email" />
+              </div>
+
+              <div class="form-group">
+                <label for="adultPhone">Telefone com DDD</label>
+                <input
+                  id="adultPhone"
+                  type="tel"
+                  placeholder="(00) 0000-0000"
+                  maxlength="15"
+                />
+              </div>
+            </div>
+
+            <div class="section">
+              <h3>Informações do Evento</h3>
+
+              <div class="form-group">
+                <label>Como você virá?</label>
+                <div class="checkbox-group">
+                  <label>
+                    <input type="radio" name="adultTransport" value="aviao" />
+                    Avião
+                  </label>
+                  <label>
+                    <input type="radio" name="adultTransport" value="onibus" />
+                    Ônibus
+                  </label>
+                  <label>
+                    <input type="radio" name="adultTransport" value="carro" />
+                    Carro
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="adultParticipation">Você participará:</label>
+                <select id="adultParticipation">
+                  <option value="">-- Selecione --</option>
+                  <option value="interact">
+                    Interact (candidato ao campo)
+                  </option>
+                  <option value="voluntario">Voluntário</option>
+                  <option value="campo">Campo</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="adultMentoriaGroup"
+                  >Qual seu grupo de mentoria?</label
+                >
+                <select id="adultMentoriaGroup">
+                  <option value="nenhum">Nenhum</option>
+                  <option value="oriente_medio">Oriente Médio</option>
+                  <option value="eurasia">Eurásia</option>
+                  <option value="africa">África</option>
+                  <option value="asia">Sul, Sudeste e Sudoeste da Ásia</option>
+                  <option value="triagem">Triagem</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Qual a sua área de atuação como voluntário?</label>
+                <div class="checkbox-group">
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="adultVolunteerArea"
+                      value="act"
+                    />
+                    ACT
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="adultVolunteerArea"
+                      value="comunicacao"
+                    />
+                    Comunicação
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="adultVolunteerArea"
+                      value="envio"
+                    />
+                    Envio
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="adultVolunteerArea"
+                      value="gestao_voluntarios"
+                    />
+                    Gestão de Voluntários
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="adultVolunteerArea"
+                      value="intercessao"
+                    />
+                    Intercessão
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="adultVolunteerArea"
+                      value="mobilizacao"
+                    />
+                    Mobilização
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="adultVolunteerArea"
+                      value="organizacional"
+                    />
+                    Organizacional (Financeiro / Jurídico)
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="adultVolunteerArea"
+                      value="projetos_especiais"
+                    />
+                    Projetos especiais
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="adultVolunteerArea"
+                      value="saude_integral"
+                    />
+                    Saúde Integral
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="adultVolunteerArea"
+                      value="ti"
+                    />
+                    TI
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="adultVolunteerArea"
+                      value="nenhum"
+                    />
+                    Nenhum
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="adultObservations">
+                  Observação (Restrições alimentares ou intolerâncias)
+                </label>
+                <textarea
+                  id="adultObservations"
+                  rows="4"
+                  placeholder="Tem restrição alimentar ou intolerância?"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="section">
+              <h3>Cupom de Desconto</h3>
+
+              <div class="form-group">
+                <label for="adultCoupon">Cupom de Desconto (opcional)</label>
+                <div class="coupon-input-group">
+                  <input
+                    id="adultCoupon"
+                    type="text"
+                    placeholder="Digite seu cupom"
+                    autocomplete="off"
+                  />
+                  <button
+                    type="button"
+                    id="applyCouponBtn"
+                    class="btn btn-secondary"
+                  >
+                    Aplicar
+                  </button>
+                </div>
+              </div>
+
+              <div id="couponInfo" style="display: none">
+                <div id="couponMessage" class="coupon-message"></div>
+                <div id="couponDiscount" class="coupon-discount"></div>
+              </div>
+            </div>
+
+            <div class="section">
+              <h3>Termos e Condições</h3>
+              <div class="consent-box">
+                <p>
+                  Os dados coletados neste formulário serão utilizados
+                  exclusivamente para sua inscrição neste evento e futuro envio
+                  de informações da organização, em conformidade com a Lei Geral
+                  de Proteção de Dados (Lei nº 13.709/2018 - LGPD). Ao enviar
+                  este formulário, você declara que concorda com estes termos e
+                  autoriza o tratamento dos seus dados para os fins mencionados.
+                  Seus dados não serão compartilhados com terceiros sem seu
+                  consentimento, salvo obrigações legais.
+                </p>
+                <label class="consent-label">
+                  <input id="adultConsent" type="checkbox" />
+                  Concordo com os termos acima
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- CAMPOS PARA CRIANÇA -->
+          <div id="childFields" style="display: none">
+            <div class="section">
+              <h3>Dados do Responsável</h3>
+
+              <div class="form-group">
+                <label for="parentName">Nome do Responsável</label>
+                <input id="parentName" type="text" />
+              </div>
+
+              <div class="form-group">
+                <label for="parentCpf">CPF do Responsável</label>
+                <input
+                  id="parentCpf"
+                  type="text"
+                  placeholder="000.000.000-00"
+                  maxlength="14"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="parentPhone">Telefone do Responsável</label>
+                <input
+                  id="parentPhone"
+                  type="tel"
+                  placeholder="(00) 0000-0000"
+                  maxlength="15"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="parentCity">Cidade</label>
+                <input id="parentCity" type="text" />
+              </div>
+
+              <div class="form-group">
+                <label for="parentState">Estado</label>
+                <input id="parentState" type="text" placeholder="SP" />
+              </div>
+
+              <div class="form-group">
+                <label for="parentEmail">Email do Responsável</label>
+                <input id="parentEmail" type="email" />
+              </div>
+            </div>
+
+            <div class="section">
+              <h3>Termos e Condições</h3>
+              <div class="consent-box">
+                <p>
+                  Os dados coletados neste formulário serão utilizados
+                  exclusivamente para a inscrição da criança neste evento e
+                  futuro envio de informações da organização, em conformidade
+                  com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 -
+                  LGPD). Ao enviar este formulário, você declara que é o
+                  responsável pela criança e concorda com estes termos e
+                  autoriza o tratamento dos seus dados para os fins mencionados.
+                </p>
+                <label class="consent-label">
+                  <input id="childConsent" type="checkbox" />
+                  Concordo com os termos acima
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 8px; margin-top: 24px">
+            <button type="submit" class="btn btn-primary">
+              Adicionar Participante
+            </button>
+            <a href="summary.html" class="btn btn-secondary">
+              Ir para Resumo
+            </a>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <script src="js/app-unified.js"></script>
+  </body>
+</html>

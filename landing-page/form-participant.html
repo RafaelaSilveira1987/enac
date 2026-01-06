@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Formulário de Inscrição — ENAC 2026</title>
+  <link rel="stylesheet" href="landing-page/css/styles.css" />
+  <link rel="stylesheet" href="landing-page/css/form-unified.css" />
+</head>
+
+<body data-page="form-unified">
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="home">ENAC 2026</a>
+      <nav>
+        <a href="verify" class="btn btn-secondary">Voltar</a>
+        <a href="summary" class="btn btn-primary">Ver Resumo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="form-container">
+      <h1>Adicionar Participante</h1>
+      <p class="form-subtitle">Preencha os dados do participante</p>
+
+      <div id="formAlert" class="alert"></div>
+
+      <form id="participantForm">
+        <!-- Campos Comuns -->
+        <div class="form-group">
+          <label for="participantName">Nome do Participante</label>
+          <input id="participantName" type="text" required />
+        </div>
+
+        <div class="form-group">
+          <label for="birthDate">Data de Nascimento</label>
+          <input id="birthDate" type="date" required />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="adultCity">Cidade</label>
+            <input id="adultCity" type="text" />
+          </div>
+          <div class="form-group">
+            <label for="adultState">Estado</label>
+            <input id="adultState" type="text" placeholder="SP" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="adultEmail">Email</label>
+          <input id="adultEmail" type="email" />
+        </div>
+
+        <div class="form-group">
+          <label for="adultPhone">Telefone com DDD</label>
+          <input id="adultPhone" type="tel" placeholder="(00) 0000-0000" maxlength="15" />
+        </div>
+
+    <div style="display: flex; gap: 8px; margin-top: 24px">
+      <button type="submit" class="btn btn-primary">
+        Adicionar Participante
+      </button>
+      <a href="summary" class="btn btn-secondary">
+        Ir para Resumo
+      </a>
+    </div>
+    </form>
+    </div>
+  </main>
+
+  <script type="module" src="landing-page/js/form-participant.js"></script>
+</body>
+
+</html>

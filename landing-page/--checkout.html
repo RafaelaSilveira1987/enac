@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Finalizar Pagamento — ENAC 2026</title>
+    <link rel="stylesheet" href="landing-page/css/styles.css" />
+    <link rel="stylesheet" href="landing-page/css/checkout.css" />
+  </head>
+  <body data-page="checkout">
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="home">ENAC 2026</a>
+        <nav>
+          <a href="summary" class="btn btn-secondary">Voltar</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <h2>Finalizar Pagamento</h2>
+      <div id="checkoutAlert" class="alert"></div>
+
+      <div class="checkout-wrapper">
+        <!-- Resumo do Pedido -->
+        <div class="order-summary-box">
+          <h3>Resumo do Pedido</h3>
+
+          <div class="order-item">
+            <span class="label">CPF do Responsável:</span>
+            <span class="value" id="cpfResponsavel">-</span>
+          </div>
+
+          <div class="order-item">
+            <span class="label">Quantidade de Participantes:</span>
+            <span class="value" id="qtdParticipantes">0</span>
+          </div>
+
+          <div class="order-item">
+            <span class="label">Nome do Evento:</span>
+            <span class="value">ENAC 2026</span>
+          </div>
+        </div>
+
+        <!-- Lista simplificada de participantes -->
+        <div class="participants-simple-list">
+          <h3>Participantes</h3>
+          <div id="checkoutParticipants" class="simple-list"></div>
+        </div>
+
+        <!-- Total destacado -->
+        <div class="total-box">
+          <div class="total-label">Valor Total a Pagar</div>
+          <div class="total-value" id="totalValue">R$ 0,00</div> 
+        </div>
+
+        <!-- Info de segurança -->
+        <div class="security-box">
+          <div class="security-icon">🔒</div>
+          <div class="security-content">
+            <h4>Pagamento Seguro via PagBank</h4>
+            <p>Aceita cartão de crédito, PIX e débito</p>
+            <p style="font-size: 0.9rem; color: #666; margin-top: 8px">
+              Você será redirecionado para ambiente seguro
+            </p>
+          </div>
+        </div>
+
+        <!-- Botões -->
+        <div class="checkout-buttons">
+          <button id="backBtn" class="btn btn-secondary btn-lg"><a href="summary">Voltar</a></button>
+          <button id="payBtn" class="btn btn-primary btn-lg btn-pay">
+            🔐 Ir para PagBank - Pagar <span id="payAmount">R$ 0,00</span>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <script type="module"  src="landing-page/js/checkout.js"></script>
+  </body>
+</html>
