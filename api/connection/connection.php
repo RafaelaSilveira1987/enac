@@ -21,9 +21,9 @@ class Conexao
                 $user = 'root';
                 $pass = '';
             } else {
-                $dsn = 'mysql:host=localhost;dbname=NOME_BANCO_AQUI';
-                $user = 'USUARIO_BANCO';
-                $pass = 'SENHA_BANCO';
+                $dsn = 'mysql:host=localhost;dbname=frontiers09';
+                $user = 'frontiers09';
+                $pass = 'frontiers7232';
             }
 
             self::$instance = new PDO($dsn, $user, $pass, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));

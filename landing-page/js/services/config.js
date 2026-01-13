@@ -10,7 +10,7 @@ const ApiConfig = {
       // return 'http://localhost:80';
     }
 
-    return 'https://enac.frontiers.org.br/enac/api/v1'; // produção
+    return 'https://frontiers.org.br/enac/api/v1'; // produção
   })(),
 
   timeout: 15000
